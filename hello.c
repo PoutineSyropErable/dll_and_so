@@ -9,7 +9,7 @@ int add( int a, int b) {
 	return a + b ;
 }
 
-int main() {
+int main(void) {
 
 	
 	printf("Hello world\n");
@@ -17,8 +17,8 @@ int main() {
 	printf("5 + 3 = %d\n", add(5,3));
 
 	//Let's create a random number:
-	time_t current_time;
-	srand(unsigned) time(&currentTime));
+	time_t currentTime;
+	srand(  (unsigned) time(&currentTime)  );
 	int randomNumber = rand();
 
 	double squareRoot = sqrt(randomNumber);
