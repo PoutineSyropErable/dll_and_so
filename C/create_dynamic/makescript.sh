@@ -6,7 +6,7 @@ gcc -fpic -O0 -c src/math/addNumbers.c -o obj/math/addNumbers.o
 gcc -fpic -O0 -c src/math/subNumbers.c -o obj/math/subNumbers.o
 #use -fPICif the compiler complains if the address shift is too big for 32 bit, slower code though
 
-gcc -fpic -shared -o lib/libmath.so obj/math/addNumbers.o obj/math/subNumbers.o -Wl,-soname,libmath.so.1  
+gcc -fpic -shared -o lib/libmath.so obj/math/addNumbers.o obj/math/subNumbers.o  
 
 
 gcc doMath.c -o doMath -O0 -I include -L lib -lmath -Wl,-rpath,"$PWD/lib"
