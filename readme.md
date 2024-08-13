@@ -6,7 +6,8 @@ The statically linked hello.o file is 700kb, whereas it should be <30kb if it wa
 
 
 
-Got it working in Linux C and C++
-Windows C, C++ not yet.
+Got it working in Linux C and C++ (makescript.sh)
+Udpate: Same for windows (build.bat)
 
 checkout: https://dev.to/sokearth/building-windows-dlls-with-gcc-162
+was really nice
