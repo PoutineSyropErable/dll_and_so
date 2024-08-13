@@ -1,11 +1,24 @@
+@echo off
+REM Set up directories
+set INCLUDE_DIR=include
+set SRC_DIR=src
+set OBJ_DIR=obj
+set LIB_DIR=.
 
-gcc -c -o calcdll.o calcdll.c -D CALCDLL_EXPORTS
-gcc -o calcdll.dll calcdll.o -s -shared -Wl,--subsystem,windows
+REM Create the obj directory if it does not exist
+if not exist %OBJ_DIR% mkdir %OBJ_DIR%
 
+REM Compile the DLL
+gcc -c -o %OBJ_DIR%\calcdll.o %SRC_DIR%\calcdll.c -D CALCDLL_EXPORTS -I %INCLUDE_DIR%
+gcc -o %LIB_DIR%\calcdll.dll %OBJ_DIR%\calcdll.o -s -shared -Wl,--subsystem,windows
 
-gcc -c -o calc.o calc.c
-gcc -o calc.exe -s calc.o -L. -lcalcdll
-calc.exe
+REM Compile the application
+gcc -c -o %OBJ_DIR%\calc.o %SRC_DIR%\calc.c -I %INCLUDE_DIR%
+gcc -o %LIB_DIR%\calc.exe -s %OBJ_DIR%\calc.o -L %LIB_DIR% -lcalcdll
 
+REM Run the application
+%LIB_DIR%\calc.exe
 
+REM Pause the Command Prompt to see the output
 @pause
+
