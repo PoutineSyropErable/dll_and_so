@@ -14,7 +14,7 @@ g++ -o %LIB_DIR%\calcdll.dll %OBJ_DIR%\calcdll.o -s -shared -Wl,--subsystem,wind
 
 REM Compile the application
 g++ -c -o %OBJ_DIR%\calc.o %SRC_DIR%\calc.cpp -I %INCLUDE_DIR%
-g++ -o calc.exe -s %OBJ_DIR%\calc.o -L"E:\School and Work\University (real)\Semester 9\Comp 400\Shared Library Practice\Windows\C++\lib" -lcalcdll
+g++ -o calc.exe -s %OBJ_DIR%\calc.o -L".\%LIB_DIR%" -lcalcdll
 
 REM Add LIB_DIR to PATH for DLL loading
 set PATH=%PATH%;%CD%\%LIB_DIR%
